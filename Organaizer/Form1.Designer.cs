@@ -63,7 +63,7 @@
             this.monthCalendar1.TitleBackColor = System.Drawing.SystemColors.ActiveBorder;
             this.monthCalendar1.TitleForeColor = System.Drawing.Color.Red;
             this.monthCalendar1.TrailingForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar1_DateChanged);
             // 
             // groupBox1
             // 
@@ -99,7 +99,7 @@
             this.button1.Size = new System.Drawing.Size(25, 25);
             this.button1.TabIndex = 2;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label1
             // 
@@ -132,6 +132,7 @@
             // 
             // panel2
             // 
+            this.panel2.AutoScroll = true;
             this.panel2.Location = new System.Drawing.Point(6, 46);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(188, 288);
@@ -154,7 +155,7 @@
             this.button2.Size = new System.Drawing.Size(25, 25);
             this.button2.TabIndex = 3;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // label2
             // 
@@ -264,10 +265,11 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.monthCalendar1);
-            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "Form1";
             this.Text = "Органайзер";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

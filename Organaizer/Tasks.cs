@@ -25,24 +25,24 @@ namespace Organaizer
         {
             InitializeComponent();
             SecondClose = secondToClose;
-            textBox1.Text = text;
-            this.StartPosition = FormStartPosition.Manual;
+            label2.Text = text;
+            StartPosition = FormStartPosition.Manual;
             pt.Offset(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
-            pt.Offset(-this.Width, -this.Height);
-            this.Location = pt;
-            this.Location = new Point(this.Location.X, this.Location.Y + this.Height);
+            pt.Offset(-Width, -Height);
+            Location = pt;
+            Location = new Point(Location.X, Location.Y + Height);
             Task.Factory.StartNew(() =>
             {
-                for (int i = 0; i < this.Height; i++)
+                for (int i = 0; i < Height; i++)
                 {
-                    if (this.IsHandleCreated)
+                    if (IsHandleCreated)
                     {
-                        this.Invoke((Action)(() =>
+                        Invoke((Action)(() =>
                         {
-                            this.Location = new Point(this.Location.X, this.Location.Y - 1);
+                            Location = new Point(Location.X, Location.Y - 1);
                         }));
                     }
-                    if (this.Location == pt) break;
+                    if (Location == pt) break;
                     Thread.Sleep(5);
                 }
             });

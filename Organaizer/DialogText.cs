@@ -11,7 +11,7 @@ namespace Organaizer
             InitializeComponent();
         }
 
-        private void addNoteBtn_Click(object sender, EventArgs e)
+        private void AddNoteBtn_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -19,15 +19,12 @@ namespace Organaizer
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             textBoxNote.Text = "";
             Close();
         }
 
-        private void textBoxNote_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }

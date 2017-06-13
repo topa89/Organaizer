@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
+
 namespace Organaizer
 {
     public partial class Form1 : Form
@@ -10,7 +11,7 @@ namespace Organaizer
         List<TextBox> txtboxList = new List<TextBox>();
         List<CheckBox> chkboxList = new List<CheckBox>();
         public CheckBox chkbox;
-        private TextBox txtboxNote;
+     
         private TextBox txtBoxCheckBox;
         public List<string> timeRemind = new List<string>();
         public List<string> textRemind = new List<string>();
@@ -19,42 +20,47 @@ namespace Organaizer
         int j = 0;
         bool checkPressedButton = true;
 
-
+    
         public Form1()
         {
+
             InitializeComponent();
+          
             panel1.HorizontalScroll.Enabled = false;
             panel1.VerticalScroll.Enabled = true;
             panel1.VerticalScroll.Visible = false;
             timer1.Interval = 1000;
             timer1.Stop();
             buttonShowReminders.Enabled = false;
-            //NotificShow(5, "Проверка");
         }
 
         void NotificShow(int secondClose, string text) // Метод для вызова уведомления.
         {
-            Tasks notific = new Tasks(secondClose, text);
-            notific.Visible = true;
+            Tasks notific = new Tasks(secondClose, text)
+            {
+                Width = SystemInformation.VirtualScreen.Width / 100,
+                Height = SystemInformation.VirtualScreen.Height / 100,
+                Visible = true
+        };
         }
 
 
         public void CreateLbl(string text)
         {
-            txtboxNote = new TextBox();
-            txtboxNote.Multiline = true;
-            txtboxNote.WordWrap = true;
-            txtboxNote.ReadOnly = true;
-            txtboxNote.Size = new Size(panel1.ClientSize.Width, panel1.ClientSize.Height/5);
-            txtboxNote.Text = text;
-            txtboxNote.Anchor = ( AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
-            txtboxNote.Location = new Point(0, j);
-            j += panel1.ClientSize.Width/3;
-          
-            txtboxNote.Font = new Font(txtboxNote.Font.Name, 8, FontStyle.Regular);
-            txtboxNote.BackColor = Color.White;
+            TextBox txtboxNote = new TextBox()
+            {
+                Multiline = true,
+                WordWrap = true,
+                ReadOnly = true,
+                Size = new Size(panel1.ClientSize.Width, panel1.ClientSize.Height / 5),
+                Text = text,
+                Anchor = (AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top),
+                Location = new Point(0, j),
+                Font = new Font(Font.Name, 8, FontStyle.Regular),
+                BackColor = Color.White  
+        };
             txtboxNote.DoubleClick += new EventHandler(TextBoxDoubleClicked);
-             
+            j += panel1.ClientSize.Width / 3;
             panel1.Controls.Add(txtboxNote);
 
             txtboxList.Add(txtboxNote);
@@ -79,7 +85,6 @@ namespace Organaizer
                     txtbox.Location = new Point(3, j);
                     j += 80;
                     panel1.Controls.Add(txtbox);
-                    //label.Text = j.ToString();
                 }
                 
             }
@@ -89,12 +94,14 @@ namespace Organaizer
         }
          
         //создание заметки    
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             DialogText f = new DialogText();
+            f.Height = SystemInformation.VirtualScreen.Height / 2;
+            f.Width = SystemInformation.VirtualScreen.Width / 2;
+            f.StartPosition = FormStartPosition.CenterScreen;
             f.ShowDialog();
-            if (f.textBoxNote.Text == "") ;
-            else CreateLbl(f.textBoxNote.Text);
+            if (f.textBoxNote.Text != "") CreateLbl(f.textBoxNote.Text);
         }
 
         //обработка нажатия checkbox
@@ -127,15 +134,20 @@ namespace Organaizer
         //создане checkbox
         private void CreateCheckBox()
         {
-            CheckBox chckbox = new CheckBox();
-            TextBox txtbox = new TextBox();
+            CheckBox chckbox = new CheckBox()
+            {
+                Size = new Size(panel2.ClientSize.Height, 25),
+                Location = new Point(0, positionChkBox)
+            };
+            Click += new EventHandler(PressCheckBox);
+
+            TextBox txtbox = new TextBox()
+            {
+                Size = new Size(panel2.ClientSize.Height, 10),
+                Location = new Point(20, positionChkBox)
+            };
             txtbox.KeyPress += new KeyPressEventHandler(textBoxForChkbox_Click);
-            chckbox.Click += new EventHandler(PressCheckBox);
-            chckbox.Location = new Point(0, positionChkBox);
             positionChkBox += 2;
-            txtbox.Location = new Point(20, positionChkBox);
-            txtbox.Size = new Size(panel2.ClientSize.Height, 10);
-            chckbox.Size = new Size(panel2.ClientSize.Height, 25);
             positionChkBox += 20;
             panel2.Controls.Add(txtbox);
             txtbox.Show();
@@ -148,14 +160,14 @@ namespace Organaizer
            
         }
 
-     //кнопка создания checkbox
-        private void button2_Click(object sender, EventArgs e)
+        //кнопка создания checkbox
+        private void Button2_Click(object sender, EventArgs e)
         {
             CreateCheckBox();
         }
 
         //выбор даты
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             
         }
@@ -191,7 +203,12 @@ namespace Organaizer
         //код для напоминаний
         private void button3_Click(object sender, EventArgs e)
         {
-            ReminderAdd reminder = new ReminderAdd();
+            ReminderAdd reminder = new ReminderAdd()
+            { 
+                Width = SystemInformation.VirtualScreen.Width / 3,
+                Height = SystemInformation.VirtualScreen.Height / 2,
+                StartPosition = FormStartPosition.CenterScreen,
+            };
             reminder.ShowDialog();
             timeRemind.Add(reminder.timePicker.Value.ToShortTimeString());
             textRemind.Add(reminder.textBoxReminder.Text.ToString());
@@ -204,11 +221,13 @@ namespace Organaizer
         //создание карты напоминания
         void CreateRemindCard(string date, string time, string text)
         {
-            TextBox txtbox = new TextBox();
+            TextBox txtbox = new TextBox()
+            {
+                Multiline = true,
+                Text = "Время: " + time + "Текст: " + text,
+                Size = new Size(152, 76)
+            };
             panel3.Controls.Add(txtbox);
-            txtbox.Multiline = true;
-            txtbox.Text = "Время: " + time + "Текст: " + text;
-            txtbox.Size = new Size(152, 76);
         }
 
         //проверка обьектов на наличие
@@ -246,11 +265,13 @@ namespace Organaizer
                 panel4.Controls.Clear();
                 for (int i = 0; i < textRemind.Count; i++)
                 {
-                    TextBox textbox = new TextBox();
-                    textbox.Multiline = true;
-                    textbox.Text = textRemind[i].ToString() + "\n" + timeRemind[i].ToString();
-                    textbox.Location = new Point(3, x);
-                    textbox.Size = new Size(152, 76);
+                    TextBox textbox = new TextBox()
+                    {
+                        Multiline = true,
+                    Text = textRemind[i].ToString() + "\n" + timeRemind[i].ToString(),
+                    Location = new Point(3, x),
+                    Size = new Size(152, 76),
+                };
                     x += 80;
                     panel4.Controls.Add(textbox);
                 }

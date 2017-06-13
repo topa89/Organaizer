@@ -35,39 +35,44 @@
             // 
             // textBoxNote
             // 
-            this.textBoxNote.Location = new System.Drawing.Point(12, 41);
+            this.textBoxNote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNote.Location = new System.Drawing.Point(12, 12);
             this.textBoxNote.Multiline = true;
             this.textBoxNote.Name = "textBoxNote";
             this.textBoxNote.Size = new System.Drawing.Size(265, 127);
             this.textBoxNote.TabIndex = 0;
-            this.textBoxNote.TextChanged += new System.EventHandler(this.textBoxNote_TextChanged);
             // 
             // addNoteBtn
             // 
-            this.addNoteBtn.Location = new System.Drawing.Point(12, 174);
+            this.addNoteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addNoteBtn.Location = new System.Drawing.Point(12, 145);
             this.addNoteBtn.Name = "addNoteBtn";
             this.addNoteBtn.Size = new System.Drawing.Size(178, 35);
             this.addNoteBtn.TabIndex = 1;
             this.addNoteBtn.Text = "Добавить";
             this.addNoteBtn.UseVisualStyleBackColor = true;
-            this.addNoteBtn.Click += new System.EventHandler(this.addNoteBtn_Click);
+            this.addNoteBtn.Click += new System.EventHandler(this.AddNoteBtn_Click);
             // 
             // buttonDelNote
             // 
+            this.buttonDelNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDelNote.Location = new System.Drawing.Point(202, 175);
+            this.buttonDelNote.Location = new System.Drawing.Point(202, 146);
             this.buttonDelNote.Name = "buttonDelNote";
             this.buttonDelNote.Size = new System.Drawing.Size(75, 34);
             this.buttonDelNote.TabIndex = 2;
             this.buttonDelNote.Text = "Удалить";
             this.buttonDelNote.UseVisualStyleBackColor = true;
-            this.buttonDelNote.Click += new System.EventHandler(this.button1_Click);
+            this.buttonDelNote.Click += new System.EventHandler(this.Button1_Click);
             // 
             // DialogText
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 221);
+            this.ClientSize = new System.Drawing.Size(288, 190);
             this.Controls.Add(this.buttonDelNote);
             this.Controls.Add(this.addNoteBtn);
             this.Controls.Add(this.textBoxNote);
