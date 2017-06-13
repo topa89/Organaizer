@@ -1,0 +1,33 @@
+c:\users\антон\documents\visual studio 2015\Projects\Organaizer\Organaizer\bin\Debug\Organaizer.exe.config
+c:\users\антон\documents\visual studio 2015\Projects\Organaizer\Organaizer\bin\Debug\Organaizer.exe
+c:\users\антон\documents\visual studio 2015\Projects\Organaizer\Organaizer\bin\Debug\Organaizer.pdb
+c:\users\антон\documents\visual studio 2015\Projects\Organaizer\Organaizer\obj\Debug\Organaizer.csprojResolveAssemblyReference.cache
+c:\users\антон\documents\visual studio 2015\Projects\Organaizer\Organaizer\obj\Debug\Organaizer.Form1.resources
+c:\users\антон\documents\visual studio 2015\Projects\Organaizer\Organaizer\obj\Debug\Organaizer.Properties.Resources.resources
+c:\users\антон\documents\visual studio 2015\Projects\Organaizer\Organaizer\obj\Debug\Organaizer.csproj.GenerateResource.Cache
+c:\users\антон\documents\visual studio 2015\Projects\Organaizer\Organaizer\obj\Debug\Organaizer.exe
+c:\users\антон\documents\visual studio 2015\Projects\Organaizer\Organaizer\obj\Debug\Organaizer.pdb
+c:\users\антон\documents\visual studio 2015\Projects\Organaizer\Organaizer\obj\Debug\Organaizer.DialogText.resources
+D:\Organaizer\Organaizer\bin\Debug\Organaizer.exe.config
+D:\Organaizer\Organaizer\obj\Debug\Organaizer.exe
+D:\Organaizer\Organaizer\obj\Debug\Organaizer.pdb
+D:\Organaizer\Organaizer\bin\Debug\Organaizer.exe
+D:\Organaizer\Organaizer\bin\Debug\Organaizer.pdb
+D:\Organaizer\Organaizer\obj\Debug\Organaizer.csprojResolveAssemblyReference.cache
+D:\Organaizer\Organaizer\obj\Debug\Organaizer.DialogText.resources
+D:\Organaizer\Organaizer\obj\Debug\Organaizer.Form1.resources
+D:\Organaizer\Organaizer\obj\Debug\Organaizer.Properties.Resources.resources
+D:\Organaizer\Organaizer\obj\Debug\Organaizer.csproj.GenerateResource.Cache
+D:\Organaizer\Organaizer\obj\Debug\Organaizer.Tasks.resources
+C:\Users\1\Documents\Organaizer\Organaizer\bin\Debug\Organaizer.exe.config
+C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.exe
+C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.pdb
+C:\Users\1\Documents\Organaizer\Organaizer\bin\Debug\Organaizer.exe
+C:\Users\1\Documents\Organaizer\Organaizer\bin\Debug\Organaizer.pdb
+C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.csprojResolveAssemblyReference.cache
+C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.DialogText.resources
+C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.Form1.resources
+C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.Properties.Resources.resources
+C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.Tasks.resources
+C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.csproj.GenerateResource.Cache
+C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.ReminderAdd.resources
