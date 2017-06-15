@@ -16,7 +16,7 @@ namespace Organaizer
         public List<string> timeRemind = new List<string>();
         public List<string> textRemind = new List<string>();
         public List<string> dateRemind = new List<string>();
-        int positionChkBox = 0;
+        int positionChkBox = 5;
         int j = 0;
         bool checkPressedButton = true;
 
@@ -32,6 +32,8 @@ namespace Organaizer
             timer1.Interval = 1000;
             timer1.Stop();
             buttonShowReminders.Enabled = false;
+            panel2.HorizontalScroll.Enabled = false;
+            panel2.HorizontalScroll.Visible = false;
         }
 
         void NotificShow(int secondClose, string text) // Метод для вызова уведомления.
@@ -83,7 +85,7 @@ namespace Organaizer
                foreach (TextBox txtbox in txtboxList)
                 {
                     txtbox.Location = new Point(3, j);
-                    j += 80;
+                    j += Convert.ToInt32(panel3.Size.Width * 0.26);
                     panel1.Controls.Add(txtbox);
                 }
                 
@@ -118,13 +120,13 @@ namespace Organaizer
                 chkboxList.Remove(checkbox);
                 chkboxList.Add(checkbox);
 
-                positionChkBox = 0;
+                positionChkBox = 5;
                 panel2.Controls.Clear();
                foreach (CheckBox checkboxlst in chkboxList)
                 {
                     checkboxlst.Location = new Point(0, positionChkBox);
-                    positionChkBox += 22;
-                    checkboxlst.Size = new Size(panel2.ClientSize.Height, 25);
+                    positionChkBox += Convert.ToInt32(panel2.ClientSize.Width * 0.15);
+                    checkboxlst.Size = new Size(panel2.ClientSize.Height, Convert.ToInt32(panel2.ClientSize.Width * 0.085));
                     panel2.Controls.Add(checkboxlst);
                     checkboxlst.Show();
                 }
@@ -136,19 +138,18 @@ namespace Organaizer
         {
             CheckBox chckbox = new CheckBox()
             {
-                Size = new Size(panel2.ClientSize.Height, 25),
+                Size = new Size(panel2.ClientSize.Width, Convert.ToInt32(panel2.ClientSize.Height * 0.020)),
                 Location = new Point(0, positionChkBox)
             };
             Click += new EventHandler(PressCheckBox);
 
             TextBox txtbox = new TextBox()
             {
-                Size = new Size(panel2.ClientSize.Height, 10),
-                Location = new Point(20, positionChkBox)
+                Size = new Size(Convert.ToInt32(panel2.ClientSize.Width * 0.80), Convert.ToInt32(panel2.ClientSize.Width * 0.035)),
+                Location = new Point(Convert.ToInt32(panel2.ClientSize.Width * 0.1), positionChkBox)
             };
             txtbox.KeyPress += new KeyPressEventHandler(textBoxForChkbox_Click);
-            positionChkBox += 2;
-            positionChkBox += 20;
+            positionChkBox += Convert.ToInt32(panel2.ClientSize.Height * 0.035);
             panel2.Controls.Add(txtbox);
             txtbox.Show();
             chkbox = chckbox;
@@ -225,7 +226,7 @@ namespace Organaizer
             {
                 Multiline = true,
                 Text = "Время: " + time + "Текст: " + text,
-                Size = new Size(152, 76)
+                Size = new Size(Convert.ToInt32(panel3.Size.Height * 0.91), Convert.ToInt32(panel3.Size.Width * 0.25))
             };
             panel3.Controls.Add(txtbox);
         }
@@ -270,9 +271,10 @@ namespace Organaizer
                         Multiline = true,
                     Text = textRemind[i].ToString() + "\n" + timeRemind[i].ToString(),
                     Location = new Point(3, x),
-                    Size = new Size(152, 76),
+                    Size = new Size(Convert.ToInt32(panel4.Size.Height * 0.91), Convert.ToInt32(panel4.Size.Width * 0.25)),
                 };
-                    x += 80;
+                   
+                    x += Convert.ToInt32(panel4.Size.Width * 0.26);
                     panel4.Controls.Add(textbox);
                 }
                 buttonShowReminders.Text = "Скрыть";

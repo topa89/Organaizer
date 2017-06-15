@@ -8,13 +8,20 @@ namespace Organaizer
         public ReminderAdd()
         {
             InitializeComponent();
-            
+            timePicker.Format = DateTimePickerFormat.Custom;
+            timePicker.CustomFormat = "HH:MM";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBoxReminder.Text == "") MessageBox.Show("Введите текст");
-            else Close();
+            if (textBoxReminder.Text == "")
+            {
+                MessageBox.Show("Введите текст");
+            }
+            else
+            {
+                Close();
+            }
         }
     }
 }
