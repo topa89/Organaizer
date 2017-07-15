@@ -16,6 +16,7 @@ namespace Organaizer
         public List<string> timeRemind = new List<string>();
         public List<string> textRemind = new List<string>();
         public List<string> dateRemind = new List<string>();
+        int positionTextBoxRemind = 0;
         int positionChkBox = 5;
         int j = 0;
         bool checkPressedButton = true;
@@ -94,14 +95,15 @@ namespace Organaizer
             f.Dispose();
             
         }
-         
+
         //создание заметки    
         private void Button1_Click(object sender, EventArgs e)
         {
-            DialogText f = new DialogText();
-            f.Height = SystemInformation.VirtualScreen.Height / 2;
-            f.Width = SystemInformation.VirtualScreen.Width / 2;
-            f.StartPosition = FormStartPosition.CenterScreen;
+            DialogText f = new DialogText() {
+                Height = SystemInformation.VirtualScreen.Height / 2,
+                Width = SystemInformation.VirtualScreen.Width / 2,
+                StartPosition = FormStartPosition.CenterScreen,
+            };
             f.ShowDialog();
             if (f.textBoxNote.Text != "") CreateLbl(f.textBoxNote.Text);
         }
@@ -141,15 +143,15 @@ namespace Organaizer
                 Size = new Size(panel2.ClientSize.Width, Convert.ToInt32(panel2.ClientSize.Height * 0.020)),
                 Location = new Point(0, positionChkBox)
             };
-            Click += new EventHandler(PressCheckBox);
+            chckbox.Click += new EventHandler(PressCheckBox);
 
             TextBox txtbox = new TextBox()
             {
-                Size = new Size(Convert.ToInt32(panel2.ClientSize.Width * 0.80), Convert.ToInt32(panel2.ClientSize.Width * 0.035)),
+                Size = new Size(Convert.ToInt32(panel2.ClientSize.Width * 0.80), Convert.ToInt32(panel2.ClientSize.Width * 0.09)),
                 Location = new Point(Convert.ToInt32(panel2.ClientSize.Width * 0.1), positionChkBox)
             };
             txtbox.KeyPress += new KeyPressEventHandler(textBoxForChkbox_Click);
-            positionChkBox += Convert.ToInt32(panel2.ClientSize.Height * 0.035);
+            positionChkBox += Convert.ToInt32(panel2.ClientSize.Height * 0.09);
             panel2.Controls.Add(txtbox);
             txtbox.Show();
             chkbox = chckbox;
@@ -211,23 +213,31 @@ namespace Organaizer
                 StartPosition = FormStartPosition.CenterScreen,
             };
             reminder.ShowDialog();
-            timeRemind.Add(reminder.timePicker.Value.ToShortTimeString());
-            textRemind.Add(reminder.textBoxReminder.Text.ToString());
-            dateRemind.Add(reminder.datePicker.Value.ToShortDateString());
-            CheckTimer();
-            buttonShowReminders.Enabled = true;
-            CreateRemindCard(dateRemind[dateRemind.Count - 1], timeRemind[timeRemind.Count - 1], textRemind[textRemind.Count - 1]);
+            if (reminder.textBoxReminder.Text != "")
+            {
+                timeRemind.Add(reminder.timePicker.Value.ToShortTimeString());
+                textRemind.Add(reminder.textBoxReminder.Text.ToString());
+                dateRemind.Add(reminder.datePicker.Value.ToShortDateString());
+                CheckTimer();
+                buttonShowReminders.Enabled = true;
+                //if ((panel3.Size.Height > panel3.Size.Height * 0.25) && (panel3.Size.Width > panel3.Size.Height * 0.25))
+                CreateRemindCard(dateRemind[dateRemind.Count - 1], timeRemind[timeRemind.Count - 1], textRemind[textRemind.Count - 1]);
+            }
         }
 
         //создание карты напоминания
         void CreateRemindCard(string date, string time, string text)
         {
+          
             TextBox txtbox = new TextBox()
             {
                 Multiline = true,
                 Text = "Время: " + time + "Текст: " + text,
-                Size = new Size(Convert.ToInt32(panel3.Size.Height * 0.91), Convert.ToInt32(panel3.Size.Width * 0.25))
+                ReadOnly = true,
+                Size = new Size(Convert.ToInt32(panel3.Size.Height * 0.22), Convert.ToInt32(panel3.Size.Width * 0.25)),
+                Location = new Point(0, positionTextBoxRemind) 
             };
+            positionTextBoxRemind += Convert.ToInt32(panel3.Size.Width * 0.25);
             panel3.Controls.Add(txtbox);
         }
 
@@ -250,6 +260,21 @@ namespace Organaizer
                     timeRemind.Remove(timeRemind[i]);
                     textRemind.Remove(textRemind[i]);
                     dateRemind.Remove(dateRemind[i]);
+                    panel3.Controls.Clear();
+                    int x = 0;
+                    for (int k = 0; k < textRemind.Count; k++)
+                    {
+                        TextBox textbox = new TextBox()
+                        {
+                            Multiline = true,
+                            Text = textRemind[k].ToString() + "\n" + timeRemind[k].ToString(),
+                            Location = new Point(3, x),
+                            Size = new Size(Convert.ToInt32(panel3.Size.Height * 0.91), Convert.ToInt32(panel3.Size.Width * 0.25)),
+                        };
+
+                        x += Convert.ToInt32(panel4.Size.Width * 0.26);
+                        panel3.Controls.Add(textbox);
+                    }
                     break;
                   
                 }

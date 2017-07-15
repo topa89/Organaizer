@@ -24,10 +24,10 @@ C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.exe
 C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.pdb
 C:\Users\1\Documents\Organaizer\Organaizer\bin\Debug\Organaizer.exe
 C:\Users\1\Documents\Organaizer\Organaizer\bin\Debug\Organaizer.pdb
-C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.csprojResolveAssemblyReference.cache
 C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.DialogText.resources
 C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.Form1.resources
 C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.Properties.Resources.resources
 C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.Tasks.resources
 C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.csproj.GenerateResource.Cache
 C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.ReminderAdd.resources
+C:\Users\1\Documents\Organaizer\Organaizer\obj\Debug\Organaizer.csprojResolveAssemblyReference.cache

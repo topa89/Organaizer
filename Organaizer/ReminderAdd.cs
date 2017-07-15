@@ -9,7 +9,7 @@ namespace Organaizer
         {
             InitializeComponent();
             timePicker.Format = DateTimePickerFormat.Custom;
-            timePicker.CustomFormat = "HH:MM";
+            timePicker.CustomFormat = "HH:mm";
         }
 
         private void button1_Click(object sender, EventArgs e)

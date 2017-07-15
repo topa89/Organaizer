@@ -57,10 +57,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(226, 76);
-            this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Tasks";
+            this.ShowIcon = false;
             this.ResumeLayout(false);
 
         }
